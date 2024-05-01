@@ -35,9 +35,11 @@ function MovieApp() {
               <h2>{movie.title}</h2>
               <p>{movie.summary}</p>
               <ul>
-                {movie.genres.map((g) => (
-                  <li key={g}>{g}</li>
-                ))}
+                {movie.genres && movie.genres.map((g) => <li key={g}>{g}</li>)}
+                {/* https://tlsdnjs12.tistory.com/56 
+                -> movie.genres가 아직 로딩이 되지 않았을 때 오류가 날 수 있음. 
+                그래서 movie.genres가 로딩이 될 때 map을 실행해야 함. 
+                안 그러면 undefined에 map을 쓸 수 없다는 오류가 뜸 */}
               </ul>
             </div>
           ))}
